@@ -17,24 +17,20 @@ body {
     justify-content: space-between;
 }
 
-/* Target the entire scrollbar */
 body::-webkit-scrollbar {
-    width: 16px; /* Width for vertical scrollbars */
+    width: 16px; 
 }
 
-/* The track (background of the scrollbar) */
 body::-webkit-scrollbar-track {
   background: #4d4c4c;
 }
 
-/* The thumb (scrolling handle) */
 body::-webkit-scrollbar-thumb {
   background: #9f9f9f;
 }
 
-/* The thumb when hovered */
 body::-webkit-scrollbar-thumb:hover {
-  background: rgb(123, 119, 119)
+  background: rgb(123, 119, 119);
 }
 
 .hidden-content {
