@@ -14,7 +14,12 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
-    gtag('config', 'G-45Y1B9GS9K', { 'storage': 'none', 'anonymize_ip': true });
+    gtag('config', 'G-45Y1B9GS9K', {
+    'storage': 'none',
+    'anonymize_ip': true,
+    'client_storage': 'none',
+    'cookie_flags': 'max-age=0;secure;samesite=none'
+  });
   </script>
   <body>
     <div id="home-page-content">
