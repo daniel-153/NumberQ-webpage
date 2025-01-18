@@ -1,4 +1,6 @@
 function createEventListeners() {
+    preloadModules();
+    
     [...document.getElementsByClassName('start-button')].forEach((element) => {
         element.addEventListener(
             'click',
@@ -48,6 +50,33 @@ function createEventListeners() {
         ACopyButton.setAttribute('data-status','text-was-copied')
         removeCopyMessage(ACopyButton);
     });
+}
+
+async function preloadModules() {
+    const genModuleNames = [
+        'genAddSub',
+        'genMulDiv',
+        'genLinEq',
+        'genFacQuad',
+        'genSysEqs',
+        'genSimRad',
+        'genTrigEx',
+        'genRatEx',
+        'genPolArith',
+        'genComArith'
+    ];
+
+    const helperModuleNames = [
+        'gen-helpers',
+        'polynom-helpers'
+    ];
+
+    const importPromises = [
+        ...genModuleNames.map(name => import(`./gen-modules/${name}.js`)),
+        ...helperModuleNames.map(name => import(`./helper-modules/${name}.js`))
+    ];
+
+    await Promise.all(importPromises);
 }
 
 const loadModule = async (funcName) => {
