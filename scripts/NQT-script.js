@@ -1,6 +1,6 @@
 function createEventListeners() {
     preloadModules();
-    
+
     [...document.getElementsByClassName('start-button')].forEach((element) => {
         element.addEventListener(
             'click',
@@ -9,7 +9,15 @@ function createEventListeners() {
                 document.getElementById('generation-content').classList.toggle('hidden-content');
                 initiateGenerator(element.getAttribute('data-gen-type'),element.getAttribute('data-gen-func-name'));
                 window.scrollTo(0, 0);
+                history.pushState({ page: 'generator' }, '', '');
         });
+    });
+
+    window.addEventListener('popstate',() => {
+        document.getElementById('home-page-content').classList.remove('hidden-content');
+        document.getElementById('generation-content').classList.add('hidden-content');
+        document.getElementById('FAQ-page').classList.add('hidden-content');
+        history.pushState({ page: 'generator' }, '', '');
     });
 
     document.getElementById('back-arrow-p-modes').addEventListener('click', () => {
@@ -27,6 +35,7 @@ function createEventListeners() {
         document.getElementById('FAQ-page').classList.toggle('hidden-content');
         window.scrollTo(0, 0);
         document.getElementById('FAQ-content-container').scrollTo(0, 0);
+        history.pushState({ page: 'generator' }, '', '');
     });
 
     document.getElementById('back-arrow-FAQ').addEventListener('click', () => {
@@ -103,7 +112,7 @@ function cleanedFromListeners(element) {
     const clone = element.cloneNode(true); 
     element.parentNode.replaceChild(clone, element); 
     return clone; 
-} // Takes an element, removes all its event listeners, and returns the cleaned element
+} 
 
 function switchToNewQuestion(newQuestion) {
     const question = newQuestion.question;
@@ -117,19 +126,17 @@ function switchToNewQuestion(newQuestion) {
     document.getElementById('un-rendered-A').innerHTML = TeXanswer;
 
     MathJax.typesetPromise([document.getElementById('Q-A-container')]);
-} // Regenerate a question and answer and display them
+} 
 
 function removeCopyMessage(element) {
-    // Clear the existing timeout if it's still pending
     if (element._timeoutId) {
         clearTimeout(element._timeoutId);
     }
 
-    // Set a new timeout and store the ID on the element
     element._timeoutId = setTimeout(() => {
         element.innerHTML = 'Copy LaTeX';
         element.removeAttribute('data-status');
-        element._timeoutId = null; // Reset the ID
+        element._timeoutId = null; 
     }, 2000);
 }
 
