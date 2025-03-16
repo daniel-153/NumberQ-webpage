@@ -519,6 +519,11 @@ function updateElementMath(elementID, latexCode, initial_font_size) {
         ) {
             container.style.overflowX = 'hidden';
         }
+        
+        // if we overflowed in the y-direction but not the x-direction, don't pull the text to the left
+        if (container.scrollHeight > container.clientHeight && !(container.scrollWidth > container.clientWidth)) {
+            container.style.justifyContent = "center";
+        }
     }
 }
 
