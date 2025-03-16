@@ -837,7 +837,6 @@ body::-webkit-scrollbar-thumb:hover {
         margin: 2vw;
         margin-bottom: 0.1vw;
         border-radius: calc(0.25 * 5vw);
-        overflow-y: auto;
     }
 
     .latex-box {
