@@ -524,8 +524,8 @@ function updateElementMath(elementID, latexCode, initial_font_size) {
         if (container.scrollHeight > container.clientHeight && !(container.scrollWidth > container.clientWidth)) {
             container.style.justifyContent = "center";
             
-            // since real y-direction overflows only seem to happen on mobile, add this special case to deal with this
-            if (window.innerWidth <= 900) observeTextChanges(container, '13vw', 'run_once');
+            // since real y-direction overflows only seem to happen on mobile (& possibly small ipads), add this special case to deal with this 
+            if (window.innerWidth <= 1200) observeTextChanges(container, '13vw', 'run_once');
         }
     }
 }
