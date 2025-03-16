@@ -360,8 +360,8 @@
         overflow-y: scroll;
         border-width: 0.75vw;
         border-radius: 2.3vw;
-        height: 90vh;
-        margin-bottom: 10vw;
+        height: 86vh;
+        margin-bottom: 14vw;
     }
 
     #fullscreen-question {
