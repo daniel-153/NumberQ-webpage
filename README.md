@@ -1,6 +1,6 @@
 # NumberQ - webpage
 
-This repository hosts the published website for [number-q.com](https::/number-q.com), built from the source code available at:
+This repository hosts the published website for [number-q.com](https://number-q.com), built from the source code available at:
 
 [https://github.com/daniel-153/NumberQ.git](https://github.com/daniel-153/NumberQ.git)
 
